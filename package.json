@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/akashkumargupta560/node-demo/issues"
   },
-  "homepage": "https://github.com/akashkumargupta560/node-demo#readme"
+  "homepage": "https://github.com/akashkumargupta560/node-demo#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "nodemon": "^3.1.3"
+  }
 }
