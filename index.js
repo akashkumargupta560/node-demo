@@ -1,10 +1,12 @@
 const express = require("express");
 require('./config');
 const port=5000;
+var cors = require('cors')
 const Users=require('./model/userinfo')
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 //POST API CREATE
 app.post("/create", async (req, resp) => {
