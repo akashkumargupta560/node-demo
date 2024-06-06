@@ -1,5 +1,6 @@
 const express = require("express");
 require('./config');
+const multer = require('multer');
 const port=5000;
 var cors = require('cors')
 const Users=require('./model/userinfo')
@@ -69,4 +70,21 @@ app.get("/search/:key", async (req,resp) =>{
     resp.send(data)
 })
 
+
+//CREATE UPLOAD FILE API WITH NPM MULTER
+const upload = multer({
+    storage:multer.diskStorage({
+        destination:function(req,file,cb)
+        {
+            cb(null,"uploads")
+        },
+        filename:function(req,file,cb)
+        {
+            cb(null,file.fieldname +"-"+ Date.now() + ".jpg")
+        }
+    })
+}).single("user_file");
+app.post("/upload", upload, (req,resp) =>{
+    resp.send("File Upload")
+})
 app.listen(port);
