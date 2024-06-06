@@ -54,4 +54,19 @@ app.put("/update/:_id", async (req,resp)=>{
     resp.send(data);
 })
 
+//CREATE SEARCH API
+app.get("/search/:key", async (req,resp) =>{
+    console.log(req.params.key);
+    let data = await Users.find(
+        {
+            "$or":[
+                { "name":{$regex:req.params.key} },
+                { "website":{$regex:req.params.key} },
+                { "username":{$regex:req.params.key} }
+            ]
+        }
+    )
+    resp.send(data)
+})
+
 app.listen(port);
