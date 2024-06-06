@@ -6,4 +6,6 @@ const userSchema = new mongoose.Schema({
     website:String,
     phone:Number
 });
-module.export = mongoose.model('userinfos', userSchema);
+const User = mongoose.model('userinfos', userSchema);
+
+module.exports=User
